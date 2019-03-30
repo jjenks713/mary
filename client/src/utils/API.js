@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiKey = "AIzaSyAXjxn4RA7qiF5kifWA_FGzVBoSah98c_E";
+// const apiKey = "AIzaSyAXjxn4RA7qiF5kifWA_FGzVBoSah98c_E";
 
 const BASEURL = "https://api.giphy.com/v1/gifs/search?q=";
 const APIKEY = "&api_key=dc6zaTOxFJmzC&limit=20";

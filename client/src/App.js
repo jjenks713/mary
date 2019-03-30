@@ -21,7 +21,7 @@ class App extends React.Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log(this.state.title);
+    console.log(this.state);
     if (this.state.title) {
       API.searchBooks({
         title: this.state.title,

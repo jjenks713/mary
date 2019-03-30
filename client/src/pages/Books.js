@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
-import DeleteBtn from "../components/DeleteBtn";
+import SaveBtn from "../components/SaveBtn";
 import API from "../utils/API";
 import Nav from "../components/Nav"
 import { Col, Row, Container } from "../components/Grid";
@@ -20,6 +20,14 @@ class Books extends Component {
     // this.loadBooks();
   }
 
+  saveBook = (id) => {
+
+      API.saveBook({
+        title: this.state.title,
+      })
+    .then(res => this.loadBooks())
+    .catch(err => console.log(err));
+  };
   // // Loads all books  and sets them to this.state.books
   // loadBooks = () => {
   //   API.getBooks()
@@ -43,7 +51,7 @@ class Books extends Component {
         <Container fluid>
 
           <Row>
-            <Col size="md-12 sm-12">
+            <Col size="md-6 sm-12">
               <Jumbotron>
                 <h1>Searched Books</h1>
               </Jumbotron>
@@ -57,14 +65,38 @@ class Books extends Component {
                             {book.title} by {book.author}
                           </strong>
                         </a>
-                        <DeleteBtn onClick={() => this.deleteBook(book._id)} />
+                        <SaveBtn onClick={() => this.saveBook(book._id)} />
                       </ListItem>
                     );
                   })}
                 </List>
               ) : (
-                  <h3>{this.props.title}</h3>
+                <h1>Search for a book title</h1>
+                  // <h3>{this.props.title}</h3>
                 )}
+            </Col>
+            <Col size="md-6 sm-12">
+              <Jumbotron>
+                <h1>Saved Books</h1>
+              </Jumbotron>
+              {/* {this.props.title.length ? (
+                <List>
+                  {this.props.title.map(book => {
+                    return (
+                      <ListItem key={book._id}>
+                        <a href={"/books/" + book._id}>
+                          <strong>
+                            {book.title} by {book.author}
+                          </strong>
+                        </a>
+                        <SaveBtn onClick={() => this.deleteBook(book._id)} />
+                      </ListItem>
+                    );
+                  })}
+                </List> */}
+              {/* ) : (
+                  <h3>{this.props.title}</h3>
+                )} */}
             </Col>
           </Row>
         </Container>

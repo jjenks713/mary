@@ -1,27 +1,14 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
 import { Input, FormBtn } from "../Form";
 
 class Nav extends Component {
   // Setting our component's initial state
   state = {
-    books: [],
+   title: ""
   };
 
   componentDidMount() {
     // this.loadBooks();
-  }
-
-  displayBooks = () => {
-    if (this.books) {
-
-    }
-
-    // API.searchBooks()
-    // .then(res => 
-    //   this.setState({books: res.data}, console.log(res.data))
-    //   .catch(err => console.log(err))
-    //   );
   }
 
   // Handles updating component state when the user types into the input field
@@ -30,21 +17,9 @@ class Nav extends Component {
     this.setState({
       [name]: value
     });
+
   };
 
-  // When the form is submitted, use the API.saveBook method to save the book data
-  // Then reload books from the database
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-  //   console.log(this.state.title);
-  //   if (this.state.title) {
-  //     API.searchBooks({
-  //       title: this.state.title,
-  //     })
-  //       .then(res => console.log(res.data))
-  //       .catch(err => console.log(err));
-  //   }
-  // };
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
