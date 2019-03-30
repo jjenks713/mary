@@ -14,8 +14,8 @@ class App extends React.Component {
   };
 
   addBooks = data => {
-    console.log(data);
-    // this.setState({title: data})
+    console.log(data.data);
+    this.setState({title: data.data})
     // console.log(this.state.title)
   };
 
