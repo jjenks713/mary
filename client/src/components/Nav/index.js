@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Input, FormBtn } from "../Form";
+import API from "../../utils/API"
 
 class Nav extends Component {
   // Setting our component's initial state
@@ -9,16 +10,43 @@ class Nav extends Component {
 
   componentDidMount() {
     // this.loadBooks();
+    // API.searchBooks(this.title)
+    // .then(res => this.setState( res.data))
+    // .catch(err => console.log(err));
   }
+
+  // addBooks = data => {
+  //   console.log(data.data);
+  //   // this.setState({title: data.data})
+  //   // console.log(this.state.title)
+  // };
 
   // Handles updating component state when the user types into the input field
   handleInputChange = event => {
-    const { name, value } = event.target;
+    const title = event.target.value;
     this.setState({
-      [name]: value
+      title
     });
-
+    console.log(title);
   };
+
+  // handleFormSubmit = event => {
+  //   event.preventDefault();
+  //   console.log(this.state.title);
+  //   if (this.state.title) {
+  //     const query = this.state.title;
+  //     console.log(query);
+  //     API.searchBooks({
+  //       query: query
+  //     })
+  //       .then(res => 
+  //         // const books = res.data;
+  //         // this.addBooks(res.data)
+  //         console.log(res.data)
+  //       )
+  //       .catch(err => console.log(err));
+  //   }
+  // };
 
   render() {
     return (

@@ -8,6 +8,7 @@ const APIKEY = "&api_key=dc6zaTOxFJmzC&limit=20";
 export default {
 
   searchBooks: function(query) {
+    console.log(query, "looking for this");
     return axios.get(BASEURL + query + APIKEY);
   },
   // searchBooks: function (term) {
