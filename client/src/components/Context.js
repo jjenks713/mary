@@ -39,7 +39,7 @@ class Person extends Component {
             <React.Fragment>
               <p>Age: {context.state.age}</p>
               <p>Name: {context.state.name}</p>
-              <button onClick={context.growAYearOlder}>🍰🍥🎂</button>
+              <button onClick={context.growAYearOlder}><span role="img" aria-label="jsx-a11y/accessible-emoji">🍰🍥🎂</span></button>
             </React.Fragment>
           )}
         </MyContext.Consumer>
