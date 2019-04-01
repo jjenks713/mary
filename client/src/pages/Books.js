@@ -17,11 +17,11 @@ class Books extends Component {
   // When the component mounts, load all books and save them to this.state.books
   componentDidMount() {
     API.getBooks()
-    .then(res => {
-      this.setState({ savedBooks: res.data })
-      console.log(res.data);
-    })
-    .catch(err => console.log(err));
+      .then(res => {
+        this.setState({ savedBooks: res.data })
+        console.log(res.data);
+      })
+      .catch(err => console.log(err));
     console.log(this.state.savedBooks);
   };
 
@@ -134,9 +134,14 @@ class Books extends Component {
                   {this.state.books.map(book => {
                     return (
                       <ListItem key={book._id}>
-                        <a href={"/books/" + book._id}>
+                        
+                        <a href={book.volumeInfo.previewLink} target="_blank">
+                        <img src={book.volumeInfo.imageLinks.thumbnail}></img><br></br>
                           <strong>
                             {book.volumeInfo.title}
+                          </strong><br></br>
+                          <strong>
+                            {book.volumeInfo.authors}
                           </strong>
                         </a><br></br>
                         <SaveBtn onClick={() => this.saveBook(book._id)} />
