@@ -50,8 +50,8 @@ class Books extends Component {
   // };
 
   addBooks = data => {
-    console.log(data.data);
-    this.setState({ books: data.data })
+    console.log(data.items);
+    this.setState({ books: data.items })
     console.log(this.state.books)
   };
 
@@ -136,9 +136,9 @@ class Books extends Component {
                       <ListItem key={book._id}>
                         <a href={"/books/" + book._id}>
                           <strong>
-                            {book.title}
+                            {book.volumeInfo.title}
                           </strong>
-                        </a>
+                        </a><br></br>
                         <SaveBtn onClick={() => this.saveBook(book._id)} />
                       </ListItem>
                     );
