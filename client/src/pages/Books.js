@@ -11,12 +11,34 @@ class Books extends Component {
   state = {
     books: [],
     title: "",
+    savedBooks: []
   };
 
   // When the component mounts, load all books and save them to this.state.books
   componentDidMount() {
-    // this.loadBooks();
-  }
+    API.getBooks()
+    .then(res => {
+      this.setState({ savedBooks: res.data })
+      console.log(res.data);
+    })
+    .catch(err => console.log(err));
+    console.log(this.state.savedBooks);
+  };
+
+
+
+  // // Loads all books  and sets them to this.state.books
+  loadBooks = () => {
+
+    API.getBooks()
+      .then(res => {
+        this.setState({ savedBooks: res.data, title: "" })
+        console.log(this.state.savedBooks);
+      })
+      .catch(err => console.log(err));
+  };
+
+
 
   // saveBook = (id) => {
 
@@ -29,7 +51,7 @@ class Books extends Component {
 
   addBooks = data => {
     console.log(data.data);
-    this.setState({books: data.data})
+    this.setState({ books: data.data })
     console.log(this.state.books)
   };
 
@@ -48,30 +70,31 @@ class Books extends Component {
     // this.setState({books: this.state.books})
     if (this.state) {
       API.searchBooks({
-        query: this.state.title
+        term: this.state.title
       })
-        .then(res => 
+        .then(res =>
           // const books = res.data;
           this.addBooks(res.data)
         )
         .catch(err => console.log(err));
     }
   };
-  // // Loads all books  and sets them to this.state.books
-  // loadBooks = () => {
-  //   API.getBooks()
-  //     .then(res =>
-  //       this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
 
-  // // Deletes a book from the database with a given id, then reloads books from the db
-  // deleteBook = id => {
-  //   API.deleteBook(id)
-  //     .then(res => this.loadBooks())
-  //     .catch(err => console.log(err));
-  // };
+  saveABook = id => {
+    console.log(id);
+    API.saveBook({
+      title: this.book.title,
+      saved: true,
+    }).then(res => this.loadBooks(res))
+      .catch(err => console.log(err));
+  }
+
+  // Deletes a book from the database with a given id, then reloads books from the db
+  deleteBook = id => {
+    API.deleteBook(id)
+      .then(res => this.loadBooks())
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
@@ -113,7 +136,7 @@ class Books extends Component {
                       <ListItem key={book._id}>
                         <a href={"/books/" + book._id}>
                           <strong>
-                            {book.title} by {book.author}
+                            {book.title}
                           </strong>
                         </a>
                         <SaveBtn onClick={() => this.saveBook(book._id)} />
@@ -130,24 +153,25 @@ class Books extends Component {
               <Jumbotron>
                 <h1>Saved Books</h1>
               </Jumbotron>
-              {/* {this.props.title.length ? (
+              {this.state.savedBooks.length ? (
                 <List>
-                  {this.props.title.map(book => {
+                  {this.state.savedBooks.map(book => {
                     return (
                       <ListItem key={book._id}>
                         <a href={"/books/" + book._id}>
                           <strong>
-                            {book.title} by {book.author}
+                            {book.title}
                           </strong>
                         </a>
-                        <SaveBtn onClick={() => this.deleteBook(book._id)} />
+                        <SaveBtn onClick={() => this.saveBook(book._id)} />
                       </ListItem>
                     );
                   })}
-                </List> */}
-              {/* ) : (
-                  <h3>{this.props.title}</h3>
-                )} */}
+                </List>
+              ) : (
+                  <h1>Saved Books</h1>
+                  // <h3>{this.props.title}</h3>
+                )}
             </Col>
           </Row>
         </Container>
