@@ -10,7 +10,9 @@ mongoose.connect(
 
 const bookSeed = [
   {
-    title: "The Dead Zone",
+    title: "Enders Game",
+    author: "Orson Scott Card",
+    link: "a link",
     saved: true,
     date: new Date(Date.now())
   }

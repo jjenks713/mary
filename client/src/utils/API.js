@@ -2,9 +2,6 @@ import axios from "axios";
 
 const apiKey = process.env.apiKey;
 
-// const BASEURL = "https://api.giphy.com/v1/gifs/search?q=";
-// const APIKEY = "&api_key=dc6zaTOxFJmzC&limit=20";
-
 export default {
 
   searchBooks: function (query) {
@@ -33,6 +30,7 @@ export default {
   },
   // Saves a book to the database
   saveBook: function (bookData) {
+    console.log(bookData);
     return axios.post("/api/books", bookData);
   }
 };

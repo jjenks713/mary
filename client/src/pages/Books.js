@@ -81,13 +81,24 @@ class Books extends Component {
   };
 
   saveABook = id => {
-    console.log(id);
-    API.saveBook({
-      title: this.book.title,
-      saved: true,
-    }).then(res => this.loadBooks(res))
-      .catch(err => console.log(err));
-  }
+    console.log(id, this.state.books);
+
+    for (var i = 0; i < this.state.books.length; i++) {
+      // console.log(this.state.books[i].id);
+      const saveBook = this.state.books[i];
+      // console.log(saveBook.volumeInfo.title);
+      if (id === saveBook.id) {
+        console.log(saveBook.volumeInfo.title)
+        API.saveBook({
+          title: saveBook.volumeInfo.title,
+          author: saveBook.volumeInfo.authors[0],
+          link: saveBook.volumeInfo.previewLink,
+          saved: true,
+        }).then(res => this.loadBooks(res))
+          .catch(err => console.log(err));
+      };
+    };
+  };
 
   // Deletes a book from the database with a given id, then reloads books from the db
   deleteBook = id => {
@@ -133,10 +144,9 @@ class Books extends Component {
                 <List>
                   {this.state.books.map(book => {
                     return (
-                      <ListItem key={book._id}>
-                        
+                      <ListItem key={book.id}>
                         <a href={book.volumeInfo.previewLink} target="_blank">
-                        <img src={book.volumeInfo.imageLinks.thumbnail}></img><br></br>
+                          <img src={book.volumeInfo.imageLinks.thumbnail}></img><br></br>
                           <strong>
                             {book.volumeInfo.title}
                           </strong><br></br>
@@ -144,7 +154,7 @@ class Books extends Component {
                             {book.volumeInfo.authors}
                           </strong>
                         </a><br></br>
-                        <SaveBtn onClick={() => this.saveBook(book._id)} />
+                        <SaveBtn onClick={() => this.saveABook(book.id)} />
                       </ListItem>
                     );
                   })}
