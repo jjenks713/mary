@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import SaveBtn from "../components/SaveBtn";
+import DeleteBtn from "../components/DeleteBtn";
 import API from "../utils/API";
 import { Input, FormBtn } from "../components/Form";
 import { Col, Row, Container } from "../components/Grid";
@@ -32,8 +33,7 @@ class Books extends Component {
 
     API.getBooks()
       .then(res => {
-        res.json(res)
-        // this.setState({ savedBooks: res.data, title: "" })
+        this.setState({ savedBooks: res.data, title: "" })
         console.log(this.state.savedBooks);
       })
       .catch(err => console.log(err));
@@ -95,7 +95,7 @@ class Books extends Component {
           author: saveBook.volumeInfo.authors[0],
           link: saveBook.volumeInfo.previewLink,
           saved: true,
-        }).then(res => this.loadBooks(res))
+        }).then(res => this.loadBooks())
           .catch(err => console.log(err));
       };
     };
@@ -179,7 +179,7 @@ class Books extends Component {
                             {book.title}
                           </strong>
                         </a>
-                        <SaveBtn onClick={() => this.saveBook(book._id)} />
+                        <DeleteBtn onClick={() => this.deleteBook(book._id)} />
                       </ListItem>
                     );
                   })}
