@@ -32,7 +32,8 @@ class Books extends Component {
 
     API.getBooks()
       .then(res => {
-        this.setState({ savedBooks: res.data, title: "" })
+        res.json(res)
+        // this.setState({ savedBooks: res.data, title: "" })
         console.log(this.state.savedBooks);
       })
       .catch(err => console.log(err));
@@ -184,7 +185,10 @@ class Books extends Component {
                   })}
                 </List>
               ) : (
-                  <h1>Saved Books</h1>
+                  <h1>Saved Books<br></br>
+                    <SaveBtn onClick={this.loadBooks} />
+                  </h1>
+                  
                   // <h3>{this.props.title}</h3>
                 )}
             </Col>

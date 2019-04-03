@@ -15,6 +15,13 @@ const bookSeed = [
     link: "a link",
     saved: true,
     date: new Date(Date.now())
+  },
+  {
+    title: "Enders Game",
+    author: "Orson Scott Card",
+    link: "a link",
+    saved: true,
+    date: new Date(Date.now())
   }
 ]
 
