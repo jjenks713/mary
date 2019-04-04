@@ -105,7 +105,7 @@ class Books extends Component {
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <a className="navbar-brand" href="/">
             Google Book Search
-      </a>
+          </a>
           <form className="form-inline my-2 my-lg-0">
             <Input
               value={this.state.title}
