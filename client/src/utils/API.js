@@ -11,7 +11,7 @@ export default {
       params: {
         key: apiKey,
         q: searchWord,
-        maxResults: 10,
+        maxResults: 20,
         country: "US"
       }
     })
