@@ -55,9 +55,10 @@ class Books extends Component {
         return (
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+                    <img src="./favicon.ico" style={{ marginRight: 10 }}></img>
                     <a className="navbar-brand" href="/">
                         Google Book Search
-      </a>
+                    </a>
                 </nav>
                 <Container fluid>
 
