@@ -150,7 +150,7 @@ class Books extends Component {
                   })}
                 </List>
               ) : (
-                  <h1>Search for a book title</h1>
+                  <h1 style={{ textAlign: "center" }}>Search for a book title</h1>
                 )}
             </Col>
           </Row>

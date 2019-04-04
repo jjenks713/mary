@@ -87,7 +87,7 @@ class Books extends Component {
                                     })}
                                 </List>
                             ) : (
-                                    <h1>Saved Books<br></br>
+                                    <h1 style={{ textAlign: "center" }}>No Saved Books<br></br>
                                     </h1>
 
                                     // <h3>{this.props.title}</h3>
