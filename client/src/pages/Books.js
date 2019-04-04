@@ -40,17 +40,6 @@ class Books extends Component {
       .catch(err => console.log(err));
   };
 
-
-
-  // saveBook = (id) => {
-
-  //   API.saveBook({
-  //     title: this.state.title,
-  //   })
-  //     .then(res => this.loadBooks())
-  //     .catch(err => console.log(err));
-  // };
-
   addBooks = data => {
     console.log(data.items);
     this.setState({ books: data.items })
@@ -117,10 +106,6 @@ class Books extends Component {
           <a className="navbar-brand" href="/">
             Google Book Search
       </a>
-          {/* <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form> */}
           <form className="form-inline my-2 my-lg-0">
             <Input
               value={this.state.title}
@@ -129,7 +114,6 @@ class Books extends Component {
               placeholder="Title (required)"
             />
             <FormBtn
-              // disabled={!(this.state.author && this.state.title)}
               onClick={this.handleFormSubmit}
             >
               Search for Book
@@ -166,7 +150,6 @@ class Books extends Component {
                 </List>
               ) : (
                   <h1>Search for a book title</h1>
-                  // <h3>{this.props.title}</h3>
                 )}
             </Col>
           </Row>
