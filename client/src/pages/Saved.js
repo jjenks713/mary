@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Jumbotron from "../components/Jumbotron";
 import SaveBtn from "../components/SaveBtn";
 import DeleteBtn from "../components/DeleteBtn";
@@ -95,7 +94,6 @@ class Books extends Component {
           title: saveBook.volumeInfo.title,
           author: saveBook.volumeInfo.authors[0],
           link: saveBook.volumeInfo.previewLink,
-          imageLink: saveBook.volumeInfo.imageLinks.thumbnail,
           saved: true,
         }).then(res => this.loadBooks())
           .catch(err => console.log(err));
@@ -117,55 +115,37 @@ class Books extends Component {
           <a className="navbar-brand" href="/">
             Google Book Search
       </a>
-          {/* <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form> */}
-          <form className="form-inline my-2 my-lg-0">
-            <Input
-              value={this.state.title}
-              onChange={this.handleInputChange}
-              name="title"
-              placeholder="Title (required)"
-            />
-            <FormBtn
-              // disabled={!(this.state.author && this.state.title)}
-              onClick={this.handleFormSubmit}
-            >
-              Search for Book
-              </FormBtn>
-          </form>
         </nav>
         <Container fluid>
 
           <Row>
             <Col size="md-12 sm-12">
               <Jumbotron>
-                <h1>Searched Books</h1>
+                <h1>Saved Books</h1>
               </Jumbotron>
-              {this.state.books.length ? (
+              {this.state.savedBooks.length ? (
                 <List>
-                  {this.state.books.map(book => {
+                  {this.state.savedBooks.map(book => {
                     return (
-                      <ListItem key={book.id}>
-                        <a href={book.volumeInfo.previewLink} target="_blank">
-                          <img src={book.volumeInfo.imageLinks.thumbnail}></img><br></br>
+                      <ListItem key={book._id}>
+                        <a href={book.link} target="_blank">
+                          <img src={book.imageLink}></img><br></br>
                           <strong>
-                            {book.volumeInfo.title}
+                            {book.title}
                           </strong><br></br>
                           <strong>
-                            {book.volumeInfo.authors}
+                            {book.author}
                           </strong>
                         </a><br></br>
-                        <Link to="/saved" className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}>
-                          <SaveBtn onClick={() => this.saveABook(book.id)} />
-                        </Link>
+                        <DeleteBtn onClick={() => this.deleteBook(book._id)} />
                       </ListItem>
                     );
                   })}
                 </List>
               ) : (
-                  <h1>Search for a book title</h1>
+                  <h1>Saved Books<br></br>
+                  </h1>
+                  
                   // <h3>{this.props.title}</h3>
                 )}
             </Col>
