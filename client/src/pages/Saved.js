@@ -75,10 +75,16 @@ class Books extends Component {
                                                 <a href={book.link} target="_blank">
                                                     <img src={book.imageLink}></img><br></br>
                                                     <strong>
-                                                        {book.title}
+                                                        Title: {book.title}
                                                     </strong><br></br>
                                                     <strong>
-                                                        {book.author}
+                                                        Author: {book.author}
+                                                    </strong>
+                                                </a><br></br>
+                                                <a>
+                                                    <strong>
+                                                        Description:<br></br>
+                                                        {book.description}
                                                     </strong>
                                                 </a><br></br>
                                                 <DeleteBtn onClick={() => this.deleteBook(book._id)} />

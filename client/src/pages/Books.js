@@ -86,6 +86,7 @@ class Books extends Component {
           author: saveBook.volumeInfo.authors[0],
           link: saveBook.volumeInfo.previewLink,
           imageLink: saveBook.volumeInfo.imageLinks.thumbnail,
+          description: saveBook.volumeInfo.description,
           saved: true,
         }).then(res => this.loadBooks())
           .catch(err => console.log(err));
