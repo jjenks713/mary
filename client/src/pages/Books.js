@@ -63,10 +63,11 @@ class Books extends Component {
       API.searchBooks({
         term: this.state.title
       })
-        .then(res =>
+        .then(res => {
           // const books = res.data;
+          console.log(res.data)
           this.addBooks(res.data)
-        )
+        })
         .catch(err => console.log(err));
     }
   };
@@ -103,7 +104,7 @@ class Books extends Component {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-        <img src="./favicon.ico" style={{ marginRight: 10 }}></img>
+          <img src="./favicon.ico" style={{ marginRight: 10 }}></img>
           <a className="navbar-brand" href="/">
             Google Book Search
           </a>
@@ -136,12 +137,18 @@ class Books extends Component {
                         <a href={book.volumeInfo.previewLink} target="_blank">
                           <img src={book.volumeInfo.imageLinks.thumbnail}></img><br></br>
                           <strong>
-                            {book.volumeInfo.title}
+                            Title: {book.volumeInfo.title}
                           </strong><br></br>
                           <strong>
-                            {book.volumeInfo.authors}
+                            Author: {book.volumeInfo.authors}
+                          </strong><br></br>
+                        </a>
+                        <a>
+                          <strong>
+                            Description:<br></br>
+                            {book.volumeInfo.description}
                           </strong>
-                        </a><br></br>
+                        </a>
                         <Link to="/saved" className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}>
                           <SaveBtn onClick={() => this.saveABook(book.id)} />
                         </Link>
