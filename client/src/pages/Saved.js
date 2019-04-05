@@ -20,10 +20,10 @@ class Books extends Component {
         API.getBooks()
             .then(res => {
                 this.setState({ savedBooks: res.data })
-                console.log(res.data);
+                // console.log(res.data);
             })
             .catch(err => console.log(err));
-        console.log(this.state.savedBooks);
+        // console.log(this.state.savedBooks);
     };
 
     // // Loads all books  and sets them to this.state.books
@@ -32,15 +32,15 @@ class Books extends Component {
         API.getBooks()
             .then(res => {
                 this.setState({ savedBooks: res.data, title: "" })
-                console.log(this.state.savedBooks);
+                // console.log(this.state.savedBooks);
             })
             .catch(err => console.log(err));
     };
 
     addBooks = data => {
-        console.log(data.items);
+        // console.log(data.items);
         this.setState({ books: data.items })
-        console.log(this.state.books)
+        // console.log(this.state.books)
     };
 
 

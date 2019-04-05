@@ -21,10 +21,10 @@ class Books extends Component {
     API.getBooks()
       .then(res => {
         this.setState({ savedBooks: res.data })
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch(err => console.log(err));
-    console.log(this.state.savedBooks);
+    // console.log(this.state.savedBooks);
   };
 
 
@@ -35,15 +35,15 @@ class Books extends Component {
     API.getBooks()
       .then(res => {
         this.setState({ savedBooks: res.data, title: "" })
-        console.log(this.state.savedBooks);
+        // console.log(this.state.savedBooks);
       })
       .catch(err => console.log(err));
   };
 
   addBooks = data => {
-    console.log(data.items);
+    // console.log(data.items);
     this.setState({ books: data.items })
-    console.log(this.state.books)
+    // console.log(this.state.books)
   };
 
 
@@ -52,12 +52,12 @@ class Books extends Component {
     this.setState({
       title
     });
-    console.log(title);
+    // console.log(title);
   };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log(this);
+    // console.log(this);
     // this.setState({books: this.state.books})
     if (this.state) {
       API.searchBooks({
@@ -65,7 +65,7 @@ class Books extends Component {
       })
         .then(res => {
           // const books = res.data;
-          console.log(res.data)
+          // console.log(res.data)
           this.addBooks(res.data)
         })
         .catch(err => console.log(err));
@@ -73,14 +73,14 @@ class Books extends Component {
   };
 
   saveABook = id => {
-    console.log(id, this.state.books);
+    // console.log(id, this.state.books);
 
     for (var i = 0; i < this.state.books.length; i++) {
       // console.log(this.state.books[i].id);
       const saveBook = this.state.books[i];
       // console.log(saveBook.volumeInfo.title);
       if (id === saveBook.id) {
-        console.log(saveBook.volumeInfo.title)
+        // console.log(saveBook.volumeInfo.title)
         API.saveBook({
           title: saveBook.volumeInfo.title,
           author: saveBook.volumeInfo.authors[0],
@@ -92,13 +92,6 @@ class Books extends Component {
           .catch(err => console.log(err));
       };
     };
-  };
-
-  // Deletes a book from the database with a given id, then reloads books from the db
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
-      .catch(err => console.log(err));
   };
 
   render() {

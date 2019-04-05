@@ -5,7 +5,7 @@ const apiKey = process.env.apiKey;
 export default {
 
   searchBooks: function (query) {
-      console.log(query.term, "looking for this");
+      // console.log(query.term, "looking for this");
        const searchWord = query.term;
     return axios.get(`https://www.googleapis.com/books/v1/volumes?`, {
       params: {
@@ -30,7 +30,7 @@ export default {
   },
   // Saves a book to the database
   saveBook: function (bookData) {
-    console.log(bookData);
+    // console.log(bookData);
     return axios.post("api/books", bookData);
   }
 };
