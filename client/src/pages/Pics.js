@@ -97,7 +97,7 @@ class Books extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        {/* <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <img src="./favicon.ico" style={{ marginRight: 10 }}></img>
           <a className="navbar-brand" href="/">
             Google Book Search
@@ -115,15 +115,15 @@ class Books extends Component {
               Search for Book
               </FormBtn>
           </form>
-        </nav>
+        </nav> */}
         <Container fluid>
 
           <Row>
             <Col size="md-12 sm-12">
               <Jumbotron>
-                <h1>Searched Books</h1>
+                <h1 className="text-secondary">Check out my Art!</h1>
               </Jumbotron>
-              {this.state.books.length ? (
+              {/* {this.state.books.length ? (
                 <List>
                   {this.state.books.map(book => {
                     return (
@@ -152,7 +152,13 @@ class Books extends Component {
                 </List>
               ) : (
                   <h1 style={{ textAlign: "center" }}>Search for a book title</h1>
-                )}
+                  
+                )} */}
+            </Col>
+          </Row>
+          <Row>
+            <Col size="md-12 sm-12">
+            <script src="https://www.powr.io/powr.js?platform=html"></script><div class="powr-media-gallery" id="583e65a7_1555885546"></div>
             </Col>
           </Row>
         </Container>

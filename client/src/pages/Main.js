@@ -7,6 +7,12 @@ import { Input, FormBtn } from "../components/Form";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 
+  const imgUrl = "https://images.wallpaperscraft.com/image/art_supplies_paints_brushes_109981_1920x1080.jpg";
+
+  const backImage1 = {
+    backgroundImage: 'url(' + imgUrl + ')'
+  };
+
 class Books extends Component {
     // Setting our component's initial state
     state = {
@@ -54,18 +60,15 @@ class Books extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-                    <img src="./favicon.ico" style={{ marginRight: 10 }}></img>
-                    <a className="navbar-brand" href="/">
-                        Google Book Search
-                    </a>
-                </nav>
+
                 <Container fluid>
 
                     <Row>
                         <Col size="md-12 sm-12">
                             <Jumbotron>
-                                <h1>Saved Books</h1>
+                                <div >
+                                <h1 className="text-secondary">So much about me!</h1>
+                                </div>
                             </Jumbotron>
                             {this.state.savedBooks.length ? (
                                 <List>
