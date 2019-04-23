@@ -116,7 +116,7 @@ class Books extends Component {
               </FormBtn>
           </form>
         </nav> */}
-        <Container fluid>
+        {/* <Container fluid> */}
 
           <Row>
             <Col size="md-12 sm-12">
@@ -161,7 +161,7 @@ class Books extends Component {
             <script src="https://www.powr.io/powr.js?platform=html"></script><div class="powr-media-gallery" id="583e65a7_1555885546"></div>
             </Col>
           </Row>
-        </Container>
+        {/* </Container> */}
       </div>
     );
   }

@@ -9,9 +9,10 @@ function NavTabs() {
         <Row>
           <Col>
             <div>
-              <img src="./favicon.ico" style={{ marginRight: 10 }}></img>
-              <a className="navbar-brand" href="/" style={{ fontFamily: "Oswald" }}>
-                Mary Jenkin
+              <img src="./capture.jpg" style={{ marginRight: 10 }}></img>
+              {/* <h1 className="text-secondary" style={{ fontFamily: "Tangerine, cursive", fontSize: 50 }}>MJ</h1> */}
+              <a className="navbar-brand" href="/" style={{ fontFamily: "Dokdo, cursive", fontSize: 50 }}>
+              Mary Jenkin
         </a>
             </div>
           </Col>
@@ -42,10 +43,10 @@ function NavTabs() {
             className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}>Browse</Link>
         </Nav.Item>
         <Nav.Item>
-          <Link to="/blog">Blog</Link>
+          <Link to="/blog" className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}>Blog</Link>
         </Nav.Item>
         <Nav.Item>
-          <Link to="/contact">Contact</Link>
+          <Link to="/contact" className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}>Contact</Link>
         </Nav.Item>
       </Nav>
 

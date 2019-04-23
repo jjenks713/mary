@@ -61,7 +61,7 @@ class Books extends Component {
         return (
             <div>
 
-                <Container fluid>
+                {/* <Container fluid> */}
 
                     <Row>
                         <Col size="md-12 sm-12">
@@ -70,7 +70,7 @@ class Books extends Component {
                                 <h1 className="text-secondary">So much about me!</h1>
                                 </div>
                             </Jumbotron>
-                            {this.state.savedBooks.length ? (
+                            {/* {this.state.savedBooks.length ? (
                                 <List>
                                     {this.state.savedBooks.map(book => {
                                         return (
@@ -100,10 +100,10 @@ class Books extends Component {
                                     </h1>
 
                                     // <h3>{this.props.title}</h3>
-                                )}
+                                )} */}
                         </Col>
                     </Row>
-                </Container>
+                {/* </Container> */}
             </div>
         );
     }
