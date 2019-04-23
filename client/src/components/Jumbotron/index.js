@@ -7,10 +7,10 @@ function Jumbotron({ children }) {
   const backImage1 = {
     backgroundImage: 'url(' + imgUrl + ')',
     backgroundSize: "100%",
-    height: 600,
+    // height: 600,
     clear: "both",
     paddingTop: 120,
-    textAlign: "center",
+    textAlign: "center"
   };
 
   return (

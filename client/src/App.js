@@ -5,6 +5,7 @@ import Main from "./pages/Main";
 import NavTabs from "./components/Nav";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
+import Footer from "./components/Footer"
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/saved" component={Pics} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/blog" component={Blog} />
+        <Footer></Footer>
       </div>
     </Router>
   );
