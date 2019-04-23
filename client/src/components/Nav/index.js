@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container, Nav } from 'react-bootstrap';
 
+const textDec = {
+  textDecoration: "none"
+}
 function NavTabs() {
   return (
     <div>
@@ -34,7 +37,7 @@ function NavTabs() {
         </Link>
             </li>
           </ul> */}
-      <Nav justify variant="tabs" defaultActiveKey="/home">
+      <Nav justify variant="tabs" defaultActiveKey="/">
         <Nav.Item>
           <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>Home</Link>
         </Nav.Item>
@@ -43,10 +46,10 @@ function NavTabs() {
             className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}>Browse</Link>
         </Nav.Item>
         <Nav.Item>
-          <Link to="/blog" className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}>Blog</Link>
+          <Link to="/blog" className={window.location.pathname === "/blog" ? "nav-link active" : "nav-link"}>Blog</Link>
         </Nav.Item>
         <Nav.Item>
-          <Link to="/contact" className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}>Contact</Link>
+          <Link to="/contact" className={window.location.pathname === "/contact" ? "nav-link active" : "nav-link"}>Contact</Link>
         </Nav.Item>
       </Nav>
 
