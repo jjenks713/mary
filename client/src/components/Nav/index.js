@@ -8,12 +8,12 @@ const textDec = {
 function NavTabs() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
+      <nav className="navbar navbar-expand-lg navbar-white bg-white justify-content-center">
         <Row>
           <Col>
             <div>
               <img src="./capture.jpg"></img>
-              {/* <h1 className="text-secondary" style={{ fontFamily: "Tangerine, cursive", fontSize: 50 }}>MJ</h1> */}
+              {/* <h1 className="text-black" style={{ fontFamily: "Tangerine, cursive", fontSize: 50 }}>MJ</h1> */}
               {/* <a className="navbar-brand" href="/" style={{ fontFamily: "Dokdo, cursive", fontSize: 50 }}>
               Mary Jenkin
         </a> */}
@@ -37,19 +37,19 @@ function NavTabs() {
         </Link>
             </li>
           </ul> */}
-      <Nav justify variant="tabs" defaultActiveKey="/">
+      <Nav justify variant="tabs" defaultActiveKey="/" className="navbar-dark bg-dark">
         <Nav.Item>
-          <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>Home</Link>
+          <Link to="/" className="nav-link active bg-dark text-white">Home</Link>
         </Nav.Item>
         <Nav.Item>
           <Link to="/saved"
-            className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}>Browse</Link>
+            className="nav-link active bg-dark text-white">Browse</Link>
         </Nav.Item>
         <Nav.Item>
-          <Link to="/blog" className={window.location.pathname === "/blog" ? "nav-link active" : "nav-link"}>Blog</Link>
+          <Link to="/blog" className="nav-link active bg-dark text-white">Blog</Link>
         </Nav.Item>
         <Nav.Item>
-          <Link to="/contact" className={window.location.pathname === "/contact" ? "nav-link active" : "nav-link"}>Contact</Link>
+          <Link to="/contact" className="nav-link active bg-dark text-white">Contact</Link>
         </Nav.Item>
       </Nav>
 
