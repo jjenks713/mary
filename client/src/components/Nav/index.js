@@ -12,11 +12,11 @@ function NavTabs() {
         <Row>
           <Col>
             <div>
-              <img src="./capture.jpg" style={{ marginRight: 10 }}></img>
+              <img src="./capture.jpg"></img>
               {/* <h1 className="text-secondary" style={{ fontFamily: "Tangerine, cursive", fontSize: 50 }}>MJ</h1> */}
-              <a className="navbar-brand" href="/" style={{ fontFamily: "Dokdo, cursive", fontSize: 50 }}>
+              {/* <a className="navbar-brand" href="/" style={{ fontFamily: "Dokdo, cursive", fontSize: 50 }}>
               Mary Jenkin
-        </a>
+        </a> */}
             </div>
           </Col>
         </Row>
